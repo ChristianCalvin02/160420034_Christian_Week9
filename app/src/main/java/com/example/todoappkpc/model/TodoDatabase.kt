@@ -6,9 +6,10 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.todoappkpc.util.MIGRATION_1_2
 import com.example.todoappkpc.util.MIGRATION_2_3
+import com.example.todoappkpc.util.MIGRATION_3_4
 import java.util.concurrent.locks.Lock
 
-@Database(entities = arrayOf(Todo::class), version = 3)
+@Database(entities = arrayOf(Todo::class), version = 4)
 abstract class TodoDatabase:RoomDatabase() {
     abstract fun todoDao():TodoDao
 
@@ -20,7 +21,7 @@ abstract class TodoDatabase:RoomDatabase() {
             Room.databaseBuilder(
                 context.applicationContext, TodoDatabase::class.java, "newtododb"
             )
-                .addMigrations(MIGRATION_1_2, MIGRATION_2_3)
+                .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4)
                 .build()
 
 

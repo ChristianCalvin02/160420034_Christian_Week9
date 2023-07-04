@@ -23,6 +23,9 @@ interface TodoDao {
     @Query("SELECT * FROM todo WHERE is_done=0")
     fun isCheck(): List<Todo>
 
+    @Update
+    fun updateTodo(vararg todo: Todo)
+
     @Delete
     fun deleteTodo(todo: Todo)
 }
